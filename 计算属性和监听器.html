@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id='app'>
+    <label>长</label>
+    <input type="number" name ="length" placeholder="请输入长的值..." v-model:value="length">
+    <label>宽</label>
+    <input type="number" name ="width"  placeholder="请输入宽的值..." v-model:value="width">
+    <label>面积</label>
+    <input type="number" name="area" :value="area" readonly></input>
+</div>
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            length:0,
+            width:0
+        },
+        computed:{
+            area(){
+               return this.length*this.width 
+            }
+        }
+    })
+</script>

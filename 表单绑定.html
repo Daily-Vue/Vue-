@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <div>
+            <!-- 文本区 -->
+            <!-- <input v-model="message" placeholder="请输入..."> -`-
+            <input v-model:value="message" placeholder="请输入..."> -->
+            <!-- 文本域 -->
+            <!-- <textarea name="" v-model:value="message" cols="30" rows="10"></textarea>  -->
+
+           
+           
+                <!-- //复选框 -->
+                <input type="checkbox"  value="Jack" v-model="checkedNames">
+             <label for="jack">Jack</label>
+            <input type="checkbox"  value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox"  value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br>
+            <span>Checked names: {{ checkedNames }}</span>
+<!--         //单选框
+            <input type="radio" value="男" v-model="gender"></input>
+            <label>男</label>
+            <input type="radio" value="女" v-model="gender"></input> 
+            <label>女</label>
+            <span>Picked: {{ gender }}</span> -->
+        <select v-model="selected">
+            <option disabled value="">请选择</option>
+            <option value="七月">A</option>
+            <option value="">B</option>
+            <option value="">C</option> 
+        </select>
+        <!-- 注意span不能写入select中 -->
+        <span>Selected: {{ selected }}</span>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            // message:"",
+            // message:"",
+            // checkedNames:[]
+            // gender:""
+            selected:""
+        }
+    })
+</script>

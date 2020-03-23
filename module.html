@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<head>
+        <style>
+                .title{
+                        font-size:20px;
+                        color:blue
+                }
+        </style>
+</head>
+<div id="app">
+        <p v-bind:class="{pcolor:red,pfont:20}">你好</p>
+        <p v-bind:class="class1">中国加油！</p>
+</div>
+
+<script>
+        new Vue({
+                el:"#app",
+                data:{
+                        isColor:true,
+                        isFont:true,
+                        class1:"title"
+                }
+
+        })
+</script>

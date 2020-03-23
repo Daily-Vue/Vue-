@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<div id="app">
+    <div v-for="book in books">
+        <lable>{{book}}</lable>
+        <p>{{count}}</p>
+        <button v-on:click="sub(2)">减</button>
+        <button v-on:click="count+=1">加1</button>
+    </div>
+
+</div>
+<script>
+    new Vue({
+         el:"#app",
+         data:{
+             books:['Python','Java','Php','c++'],  
+             count:0
+         },
+         methods:{
+            //  changeBooks:function(),
+            //  sub:functioon(){} 可读性更高
+             sub(value){
+                 this.count -=1
+             }
+         }
+    })
+</script>

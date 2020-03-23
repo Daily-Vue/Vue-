@@ -1,0 +1,54 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<head>
+    <style>
+            .title{
+                    font-size:15px;
+                    color:blue
+            }
+            .main-title{
+                font-weight: 500;
+                background-color:honeydew;
+            }
+    </style>
+    
+</head>
+
+<div id='app'>
+    <!-- <p v-bind:style="{color:color?'red':'blue'}">{{username1.split(" ").reverse().join(" ")}}</p> reverse()翻转-->
+
+    <template v-if="loginType=='username'">
+        <label v-bind:class="{title:class1,'main-title':class2}" for="">用户名:</label>
+        <input type="text" placeholder="用户名" key="username"></input>
+    </template>
+    <template v-else-if="loginType=='email'">
+        <label v-bind:class="{title:class1,'main-title':class2}" for="">邮箱:</label>
+        <input type="text" placeholder="邮箱" key="email"></input>
+    </template>
+    <button v-on:click="changeLoginType">切换登录类型</button>
+    
+    <p v-bind:style = {backgroundColor:background}>帮助：</p>
+    <div v-html = "code"></div>
+
+    <img v-bind:src="imgSrc" alt="">
+    
+</div>
+ <script>
+     new Vue({
+         el:"#app",
+         data:{
+            //  class1:"title",
+            class1:true,
+            class2:true,
+            background:'honeydew',
+            loginType:"email",
+            "code": "<a href='https://www.baidu.com'>百度一下，你就知道！</a>",
+            "imgSrc":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584625508736&di=11aa557157e6dfdb98e20d740699fd23&imgtype=0&src=http%3A%2F%2Ffile.youboy.com%2Fa%2F105%2F81%2F6%2F2%2F11099982s.jpg"
+         },
+         methods:{
+             changeLoginType:function(){
+                 this.loginType = this.loginType=='username'?'email':'username'
+             }
+         }
+     })
+ </script>

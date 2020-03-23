@@ -1,0 +1,52 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id='app'>
+    <label>省:</label>
+    <input type="text" name="province" v-model:value="province"></input>
+    <label>市:</label>
+    <input type="text" name="city" v-model:value="city"></input>
+    <label>区:</label>
+    <input type="text" name="dist" v-model:value="dist"></input>
+    <label>详细地址:</label>
+    <input type="text" name="address" v-model:value="address"></input>
+</div> 
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            province:"",
+            cite:"",
+            dist:""
+        },
+        computed:{
+            address:{
+                get:function(){
+                    let result="";
+                    if(this.province){
+                        result = this.province+"省";
+                    }
+                    if(this.city){
+                        result += this.city+"市";
+                        // 加号作用是把字符串连接起来
+                    }
+                    if(this.dist){
+                        result += this.dist+"区";
+                    } 
+                    return result;
+                },
+               set:function(newValue){
+                let result = newValue.split(/省|市|区/)
+                if(result&&result.length>0){
+                    this.province = result[0]
+                }
+                if(result&&result.length>1){
+                    this.city = result[1]
+                }
+                if(result&&result.length>2){
+                    this.dist = result[2]
+                }
+               }
+            }
+        }
+    })
+</script>
